@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HALAL WORK With ZORO TRADER</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+        }
+        .logo-container {
+            width: 140px;
+            height: 140px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 2px solid #ff7700;
+            box-shadow: 0 0 20px rgba(255, 119, 0, 0.4);
+            margin-bottom: 25px;
+            background: #1a1a1a;
+        }
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .subtitle {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #ff7700;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #ffffff;
+            line-height: 1.3;
+        }
+        .description {
+            font-size: 14px;
+            color: #b3b3b3;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            padding: 0 10px;
+        }
+        .join-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #ff8800, #ff5500);
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 25px rgba(255, 102, 0, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-bottom: 25px;
+        }
+        .join-btn:active {
+            transform: scale(0.98);
+        }
+        .timer-box {
+            width: 100%;
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(255, 119, 0, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .time-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .time-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+        .time-label {
+            font-size: 10px;
+            color: #ff7700;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+        .time-colon {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff7700;
+            margin-bottom: 12px;
+        }
+        footer {
+            width: 100%;
+            max-width: 420px;
+            font-size: 11px;
+            color: #737373;
+            border-top: 1px solid #222;
+            padding-top: 15px;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Logo / Photo -->
+        <div class="logo-container">
+            <img src="https://i.ibb.co/hR4N03xk/IMG-20261112-171323-482.jpg" alt="Zoro Trader Logo">
+        </div>
+
+        <!-- Header Titles -->
+        <div class="subtitle">TELEGRAM CHANNEL</div>
+        <h1>HALAL WORK With ZORO TRADER 📊</h1>
+        <p class="description">Trusted market insights, disciplined research and honest updates — straight from the desk to your phone.</p>
+
+        <!-- Call to Action Button -->
+        <a href="https://t.me/+dFhqMDkbdmZmMzc1" class="join-btn" target="_blank">
+            <span>✈</span> JOIN TELEGRAM CHANNEL
+        </a>
+
+        <!-- Countdown Timer -->
+        <div class="timer-box">
+            <div class="time-block">
+                <span class="time-value" id="minutes">04</span>
+                <span class="time-label">MIN</span>
+            </div>
+            <div class="time-colon">:</div>
+            <div class="time-block">
+                <span class="time-value" id="seconds">56</span>
+                <span class="time-label">SEC</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Disclaimer</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <p>&copy; 2026 ZORO TRADER. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple countdown loop timer simulation
+        let totalSeconds = 4 * 60 + 56;
+        const minEl = document.getElementById('minutes');
+        const secEl = document.getElementById('seconds');
+
+        setInterval(() => {
+            if (totalSeconds > 0) {
+                totalSeconds--;
+                let m = Math.floor(totalSeconds / 60);
+                let s = totalSeconds % 60;
+                minEl.textContent = String(m).padStart(2, '0');
+                secEl.textContent = String(s).padStart(2, '0');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
